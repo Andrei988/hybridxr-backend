@@ -25,8 +25,7 @@ SECRET_KEY = 'v2pf#902(h370k0%xv4=yoo9t_1@w)cvn%ixwavebf8avzmm!='
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "http://localhost:3000",
-    "http://snurfer98.pythonanywhere.com/"
+    "snurfer98.pythonanywhere.com"
 ]
 
 # Application definition
