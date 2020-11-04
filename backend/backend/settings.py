@@ -24,7 +24,10 @@ SECRET_KEY = 'v2pf#902(h370k0%xv4=yoo9t_1@w)cvn%ixwavebf8avzmm!='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "http://localhost:3000",
+    "http://snurfer98.pythonanywhere.com/"
+]
 
 # Application definition
 
@@ -35,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'rest_framework',
+    # 'rest_framework',
     'posts',
 ]
 
@@ -114,7 +117,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
