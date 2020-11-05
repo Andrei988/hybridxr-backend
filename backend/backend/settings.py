@@ -24,11 +24,6 @@ SECRET_KEY = 'v2pf#902(h370k0%xv4=yoo9t_1@w)cvn%ixwavebf8avzmm!='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "snurfer98.pythonanywhere.com",
-    "127.0.0.1"
-]
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,9 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'posts',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -75,13 +74,45 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': str(BASE_DIR / 'db.mysql'),
+#         'USER': 'snurfer98',
+#         'PASSWORD': 'Bbandrei1!',
+#         'HOST': 'snurfer98.mysql.pythonanywhere-services.com',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': str(BASE_DIR / 'db.mysql'),
+#         'USER': '',
+#         'PASSWORD': '',
+#         'HOST': '',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'snurfer98$dev',
+#         'USER': 'snurfer98',
+#         'PASSWORD': 'Bbandrei1!',
+#         'HOST': 'snurfer98.mysql.pythonanywhere-services.com',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': str(BASE_DIR / 'db.mysql'),
-        'USER': 'snurfer98',
-        'PASSWORD': 'Bbandrei1!',
-        'HOST': 'snurfer98.mysql.pythonanywhere-services.com',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'sqlite3.db',  # Or path to database file if using sqlite3.
+        'USER': '',  # Not used with sqlite3.
+        'PASSWORD': '',  # Not used with sqlite3.
+        'HOST': '',  # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',  # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -120,11 +151,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOWED_ORIGINS = [
-    "localhost:3000",
-    "snurfer98.pythonanywhere.com"
+CORS_ORIGIN_WHITELIST = [
+    "localhost"
+    "http://localhost:3000",
+    "http://localhost:8000",
+    "http://snurfer98.pythonanywhere.com"
 ]
 
-
+ALLOWED_HOSTS = [
+    "localhost",
+    "snurfer98.pythonanywhere.com",
+    '127.0.0.1'
+]
