@@ -120,8 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOWED_ORIGINS = [
     "localhost:3000",
-    "snurfer98.pythonanywhere.com/"
+    "snurfer98.pythonanywhere.com"
 ]
+
+
