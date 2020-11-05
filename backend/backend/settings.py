@@ -79,6 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': str(BASE_DIR / 'db.sqlite3'),
+        'USER': 'snurfer98',
+        'PASSWORD': 'bbandrei1',
+        'HOST': 'snurfer98.mysql.pythonanywhere-services.com',
     }
 }
 
