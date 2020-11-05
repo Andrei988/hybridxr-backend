@@ -25,7 +25,8 @@ SECRET_KEY = 'v2pf#902(h370k0%xv4=yoo9t_1@w)cvn%ixwavebf8avzmm!='
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "snurfer98.pythonanywhere.com"
+    "snurfer98.pythonanywhere.com",
+    "127.0.0.1"
 ]
 
 # Application definition
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'rest_framework',
+    'rest_framework',
     'posts',
 ]
 
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
