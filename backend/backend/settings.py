@@ -74,47 +74,14 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': str(BASE_DIR / 'db.mysql'),
-#         'USER': 'snurfer98',
-#         'PASSWORD': 'Bbandrei1!',
-#         'HOST': 'snurfer98.mysql.pythonanywhere-services.com',
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': str(BASE_DIR / 'db.mysql'),
-#         'USER': '',
-#         'PASSWORD': '',
-#         'HOST': '',
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'snurfer98$dev',
-#         'USER': 'snurfer98',
-#         'PASSWORD': 'Bbandrei1!',
-#         'HOST': 'snurfer98.mysql.pythonanywhere-services.com',
-#         'PORT': '3306',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'),  # Or path to database file if using sqlite3.
-        'USER': '',  # Not used with sqlite3.
-        'PASSWORD': '',  # Not used with sqlite3.
-        'HOST': '',  # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',  # Set to empty string for default. Not used with sqlite3.
+        'NAME': str(BASE_DIR / 'sqlite3.db'),
     }
 }
+
+print(DATABASES)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -150,8 +117,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = [
@@ -166,3 +131,23 @@ ALLOWED_HOSTS = [
     "snurfer98.pythonanywhere.com",
     '127.0.0.1'
 ]
+
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+EMAIL_HOST = 'gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'infomain03@gmail.com'
+EMAIL_HOST_PASSWORD = 'bbandrei1'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'hybridxr402@gmail.com'
+EMAIL_HOST_PASSWORD = 'olegpidar'
+
