@@ -1,17 +1,14 @@
-import datetime
-
 from rest_framework import serializers
-from .models import Post
+from .models import Post, CompanyData
 
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = (
-            'id',
-            'title',
-            'description',
-            'image',
-            'timestamp',
-            'isRelated',
-        )
+        fields = '__all__'
+
+
+class CompanyDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CompanyData
+        fields = '__all__'

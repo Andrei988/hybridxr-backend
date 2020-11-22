@@ -5,14 +5,14 @@ from django.db import models
 
 class CompanyData(models.Model):
     id = models.AutoField(primary_key=True)
-    company_name = models.TextField(blank=True, null=True)
+    company_name = models.CharField(max_length=50, default='HybridXR')
     company_description = models.TextField(blank=True, null=True)
-    contact_title = models.TextField(blank=True, null=True)
-    contact_address = models.TextField(blank=True, null=True)
-    contact_address_array = models.TextField(blank=True, null=True)
-    contact_email = models.TextField(blank=True, null=True)
-    contact_number = models.TextField(blank=True, null=True)
-    footer_title = models.TextField(blank=True, null=True)
+    contact_title = models.CharField(max_length=100, null=True)
+    contact_address = models.CharField(max_length=50, null=True)
+    contact_email = models.EmailField(max_length=20, null=True)
+    contact_number = models.CharField(max_length=15, null=True)
+    footer_title = models.CharField(max_length=50, null=True)
+    timestamp = models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ['-id']

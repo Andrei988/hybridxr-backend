@@ -3,17 +3,20 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.utils import json
 from django.core.mail import send_mail
+from django.conf import settings
 
-from .models import Post
-from .serializers import PostSerializer
+from .models import Post, CompanyData
+from .serializers import PostSerializer, CompanyDataSerializer
 
 
 @api_view(['GET'])
 def apiOverview(request):
     api_urls = {
-        'Admin page': '/admin/',
-        'Post list': '/api/post/list',
-        'Post detailed': '/api/post/:id',
+        'admin': '/api/admin',
+        'contact_view': '/api/post/list',
+        'get_company_info': '/api/post/:id',
+        'post_list_view': '/api/post/:id',
+        'post_detailed_view': '/api/post/:id',
     }
     return Response(api_urls)
 
@@ -23,6 +26,8 @@ def contact_view(request, *args, **kwargs):
     body_unicode = request.body.decode('utf-8')
     body = json.loads(body_unicode)
     print(body)
+    print(settings.EMAIL_HOST_PASSWORD)
+    print(settings.EMAIL_HOST_USER)
     send_mail(
         body['subject'],
         body['textarea'],
@@ -31,12 +36,14 @@ def contact_view(request, *args, **kwargs):
         fail_silently=False,
     )
 
-    return Response()
+    return Response({'message': 'message sent'}, status=200)
 
 
 @api_view(['GET'])
-def get_company_info(request, *args, **kwargs):
-    return Response()
+def company_info_view(request, *args, **kwargs):
+    qs = CompanyData.objects.all()
+    serializer = CompanyDataSerializer(qs, many=True)
+    return Response(serializer.data, status=200)
 
 
 @api_view(['GET'])
