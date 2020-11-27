@@ -23,8 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'posts',
     'corsheaders',
+    'posts',
 ]
 
 MIDDLEWARE = [
@@ -133,4 +133,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'hybridxr420@gmail.com'
 EMAIL_HOST_PASSWORD = 'olegpidar'
+
+SECURE_SSL_REDIRECT = True
 
