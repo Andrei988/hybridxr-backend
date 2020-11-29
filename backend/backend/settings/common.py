@@ -7,12 +7,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'v2pf#902(h370k0%xv4=yoo9t_1@w)cvn%ixwavebf8avzmm!='
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -106,8 +100,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-CORS_ORIGIN_ALLOW_ALL = True
-
 CORS_ORIGIN_WHITELIST = [
     "localhost"
     "http://localhost:3000",
@@ -115,17 +107,12 @@ CORS_ORIGIN_WHITELIST = [
     "http://snurfer98.pythonanywhere.com"
 ]
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "snurfer98.pythonanywhere.com",
-    '127.0.0.1'
-]
+
 
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(str(BASE_DIR), 'media')
 MEDIA_URL = '/media/'
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -134,5 +121,4 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'hybridxr420@gmail.com'
 EMAIL_HOST_PASSWORD = 'olegpidar'
 
-SECURE_SSL_REDIRECT = True
 
