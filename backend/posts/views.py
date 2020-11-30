@@ -49,9 +49,11 @@ def company_info_view(request, *args, **kwargs):
 @api_view(['GET'])
 def post_list_view(request, *args, **kwargs):
     qs = Post.objects.all()
-    if qs is None:
+    if qs.count() is 0:
         return Response({}, status=404)
+
     serializer = PostSerializer(qs, many=True)
+
     return Response(serializer.data, status=200)
 
 
