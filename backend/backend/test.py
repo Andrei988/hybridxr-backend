@@ -1,4 +1,3 @@
-import os
-SECRET_KEY = os.environ['SECRET_KEY']
+from decouple import config
+SECRET_KEY = config("SECRET_KEY")
 print(SECRET_KEY)
-print("SECRET_KEY")
