@@ -3,7 +3,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.utils import json
 from django.core.mail import send_mail
-from django.conf import settings
 
 from .models import Post, CompanyData
 from .serializers import PostSerializer, CompanyDataSerializer
@@ -13,9 +12,9 @@ from .serializers import PostSerializer, CompanyDataSerializer
 def apiOverview(request):
     api_urls = {
         'admin': '/api/admin',
-        'contact_view': '/api/post/list',
-        'get_company_info': '/api/post/:id',
-        'post_list_view': '/api/post/:id',
+        'contact_view': '/api/contact',
+        'get_company_info': '/api/info',
+        'post_list_view': '/api/post/list',
         'post_detailed_view': '/api/post/:id',
     }
     return Response(api_urls)
@@ -25,14 +24,11 @@ def apiOverview(request):
 def contact_view(request, *args, **kwargs):
     body_unicode = request.body.decode('utf-8')
     body = json.loads(body_unicode)
-    print(body)
-    print(settings.EMAIL_HOST_PASSWORD)
-    print(settings.EMAIL_HOST_USER)
     send_mail(
         body['subject'],
         body['textarea'],
         body['email'],
-        ['andreimain03@gmail.com'],
+        ['andreimain03@gmail/com'],  # TODO: change to working email
         fail_silently=False,
     )
 

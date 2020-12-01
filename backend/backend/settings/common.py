@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config("DEBUG")
+DEBUG = config("DEBUG", default=False, cast=bool)
 
 # Application definition
 
@@ -68,8 +68,6 @@ DATABASES = {
     }
 }
 
-print(DATABASES)
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -104,23 +102,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-CORS_ORIGIN_WHITELIST = [
-    "localhost"
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "http://snurfer98.pythonanywhere.com"
-]
+
 
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(str(BASE_DIR), 'media')
 MEDIA_URL = '/media/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'hybridxr420@gmail.com'
-EMAIL_HOST_PASSWORD = 'olegpidar'
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "snurfer98.pythonanywhere.com",
+    '127.0.0.1'
+]
 
 
