@@ -28,7 +28,7 @@ def contact_view(request, *args, **kwargs):
         body['subject'],
         body['textarea'],
         body['email'],
-        ['andreimain03@gmail/com'],  # TODO: change to working email
+        ['andreimain03@gmail.com'],  # TODO: change to working email
         fail_silently=False,
     )
 
