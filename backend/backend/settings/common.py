@@ -105,8 +105,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(str(BASE_DIR))
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 MEDIA_URL = '/media/'
 
 EMAIL_BACKEND = config('EMAIL_BACKEND')

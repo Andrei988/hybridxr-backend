@@ -9,5 +9,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('posts.urls'))
 ]
-
+print("--------------------------------------------------------------")
+print(settings.MEDIA_URL)
+print(settings.MEDIA_ROOT)
+print("--------------------------------------------------------------")
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
