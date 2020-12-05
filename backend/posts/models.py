@@ -21,7 +21,7 @@ class Post(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    image = models.FileField(upload_to='media/', blank=True, null=True)
+    image = models.FileField(upload_to='assets/images', blank=True, null=True)
     timestamp = models.DateTimeField(auto_now=True)
     isRelated = models.BooleanField(null=False, default=False)
 
