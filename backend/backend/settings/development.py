@@ -1,4 +1,4 @@
-from ..settings.common import *
+from ..settings.settings import *
 CORS_ORIGIN_WHITELIST = [
     "localhost"
     "http://localhost:3000",
